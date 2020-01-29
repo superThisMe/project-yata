@@ -149,11 +149,12 @@ public class MypageController {
 	review.setRev_photo(fileName);
 	
 	reviewService.writeReview(review);
-		
+	reserveService.returnCar(review.getRes_num());	
+	
 	if (review == null) {
 		return "mypage/mypage-main";
 	} else {
-		return "mypage/mypage-reviewlist";
+		return String.format("redirect:/mypage/reviewlist?user_num=%d", review.getUser_num());
 	}
 	
 	}

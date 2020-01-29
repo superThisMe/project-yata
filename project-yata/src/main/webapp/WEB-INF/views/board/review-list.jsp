@@ -87,7 +87,6 @@
 	                    <td>${ review.car.carType.car_maker }</td>
 	                    <td>${ review.car.carType.car_class }</td>
 	                    <td>
-	                      	<br>
 	                      	<a href="/project-yata/board/review-detail?revNum=${ review.rev_num }" data-bno="${ review.rev_title }">
 	                      		${ review.rev_title }
 	                      	</a>

@@ -81,7 +81,7 @@
 		          <div class="form-group">
 		            <label>사진</label> 
 		            <div style="width: 200px; height: 200px" class="form-control" id='rev_photo'>
-		            	<img src="/project-yata/resources/file/review-photo/${ review.rev_photo }">
+		            	<img style="width: 100%; height: 100%" src="/project-yata/resources/file/review-photo/${ review.rev_photo }">
 		            </div>
 		          <br>
 		          <button id="tolist-button" type="button" class="btn btn-success">목록</button>

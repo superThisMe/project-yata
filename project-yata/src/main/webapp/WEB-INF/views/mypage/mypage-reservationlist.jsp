@@ -93,7 +93,7 @@
 															
 															<c:choose>
 																<c:when test="${not reserve.res_cancel}">
-																	<a class="dropdown-item" href="#" data-toggle="modal" data-target="#returnCar">
+																	<a data-res-num="${ reserve.res_num }" data-user-num="${ reserve.member.user_num }" data-car-num="${ reserve.car.car_num }" class="dropdown-item show-ask-review-modal" href="javascript:" >
 													               		<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>반납
 													               	</a>
 																</c:when>
@@ -122,7 +122,7 @@
 																	
 																	<div class="modal-footer">
 																		<button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
-																		<a class="btn btn-primary" data-toggle="modal" href="#askReview">반납</a>
+																		<a  class="btn btn-primary" href="#" data-toggle="modal" data-target="#askReview">반납</a>
 																	</div>
 																</div>
 															</div>
@@ -141,8 +141,8 @@
 																	</div>
 																		
 																	<div class="modal-footer">
-																		<a class="btn btn-primary" href="/project-yata/mypage/return_car?resNum=${ reserve.res_num }&userNum=${ reserve.member.user_num }">다음에</a>
-																		<a class="btn btn-primary" href="/project-yata/mypage/review-write?resNum=${ reserve.res_num }&userNum=${ reserve.member.user_num }&carNum=${ reserve.car.car_num }">작성</a>
+																		<a class="btn btn-primary next" href="javascript:">다음에</a>
+																		<a class="btn btn-primary write" href="javascript:">작성</a>
 																	</div>
 																</div>
 															</div>
@@ -207,6 +207,20 @@
 	<!-- Page level custom scripts -->
 	<script
 		src="/project-yata/resources/yata-member-admin/js/demo/datatables-demo.js"></script>
+		
+	<script type="text/javascript">
+	$(function() {
+		$('.show-ask-review-modal').on('click', function(event) {
+			var user_num = $(this).attr("data-user-num");
+			var res_num = $(this).attr("data-res-num");
+			var car_num = $(this).attr("data-car-num");
+			
+			$('#askReview a.next').attr('href', "/project-yata/mypage/return_car?resNum=" + res_num + "&userNum=" + user_num);
+			$('#askReview a.write').attr('href', "/project-yata/mypage/review-write?resNum=" + res_num + "&userNum=" + user_num + "&carNum=" + car_num);
+			$('#returnCar').modal("show");
+		});
+	});
+	</script>
 
 </body>
 
