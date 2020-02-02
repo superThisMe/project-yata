@@ -52,7 +52,7 @@ public class MemberServiceImpl implements MemberService {
 		
 		memberMapper.updatePoint(member);
 		
-//		send_mail(member);
+		//send_mail(member);
 
 	}
 
@@ -75,11 +75,11 @@ public class MemberServiceImpl implements MemberService {
 		// Mail Server 설정
 		String charSet = "utf-8";
 		String hostSMTP = "smtp.naver.com";
-		String hostSMTPid = "hbj3809@naver.com";
-		String hostSMTPpwd = "qudcn6457@@";
+		String hostSMTPid = "#";
+		String hostSMTPpwd = "#";
 
 		// 보내는 사람 EMail, 제목, 내용
-		String fromEmail = "hbj3809@naver.com";
+		String fromEmail = "#";
 		String fromName = "YA TA!";
 		String subject = "";
 		String msg = "";
@@ -91,7 +91,7 @@ public class MemberServiceImpl implements MemberService {
 		msg += member.getUser_Name() + "님 회원가입을 환영합니다.</h3>";
 		msg += "<div style='font-size: 130%'>";
 		msg += "하단의 인증 버튼 클릭 시 정상적으로 회원가입이 완료됩니다.</div><br/>";
-		msg += "<form method='post' action='http://172.16.6.3:8081/project-yata/account/approval_member'>";
+		msg += "<form method='post' action='http://localhost:8088/project-yata/account/approval_member'>";
 		msg += "<input type='hidden' name='user_email' value='" + member.getUser_email() + "'>";
 		msg += "<input type='hidden' name='user_key' value='" + member.getUser_key() + "'>";
 		msg += "<input type='submit' value='인증'></form><br/></div>";
